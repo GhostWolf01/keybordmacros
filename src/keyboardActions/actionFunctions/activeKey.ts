@@ -7,8 +7,9 @@ export interface IActiveKeyParams {
 }
 
 export const activeKeys = new ActionFunction<IActiveKeyParams>(
-  async (params: IActiveKeyParams) => {
+  async (params: IActiveKeyParams, actionFunction) => {
     for (let count = 1; count <= params.repetitions; count++) {
+      if (!actionFunction.action) return;
       await invoke("active_keys", {
         keysArray: params.keysArray,
       });

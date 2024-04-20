@@ -333,7 +333,7 @@ pub fn active_keys(keys_array: Vec<String>) -> bool {
                 let second_key = get_keybd_key(parts.clone().nth(0).unwrap_or_default()).unwrap();
                 second_key.press();
                 key_press(keybd_key);
-                second_key.release()
+                second_key.release();
             } else if count == 3 {
                 let second_key = get_keybd_key(parts.clone().nth(0).unwrap_or_default()).unwrap();
                 second_key.press();
@@ -367,6 +367,7 @@ pub fn active_keys(keys_array: Vec<String>) -> bool {
             }
         }
     }
+    thread::sleep(time::Duration::from_millis(20));
     return true;
 }
 

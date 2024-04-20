@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "keyboard_macros",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "tauri": {
     "allowlist": {
@@ -86,7 +86,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "keyboard_macros",
+      "identifier": "KeyboardMacros",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
