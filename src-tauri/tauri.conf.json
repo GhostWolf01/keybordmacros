@@ -7,7 +7,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "keyboard_macros",
+    "productName": "KeyboardMacros",
     "version": "0.0.2"
   },
   "tauri": {
