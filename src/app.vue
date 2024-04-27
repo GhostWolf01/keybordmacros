@@ -12,6 +12,7 @@ import { trayWebviewConfig } from "@/tray/tray";
 import type { InputTypeApp } from "./types/app";
 import { appWindow } from "@tauri-apps/api/window";
 import TableActions from "@/components/TableActions.vue";
+import { bindKeybdActions } from "./keyboardActions/keyboardActions";
 
 const trayWebview = new WebviewWindow("trayWebview", trayWebviewConfig);
 
@@ -75,6 +76,8 @@ async function main() {
       })
     );
   }
+
+  await bindKeybdActions();
 
   await activeBindKeys();
 }

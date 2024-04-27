@@ -115,8 +115,7 @@ export function cloneActionFunction(clone: IActionFunction): IActionFunction {
 
 const unlistens: UnlistenFn[] = [];
 
-export async function saveKeybdActions() {
-  config.autoSaveSubVariantConfig();
+export async function bindKeybdActions() {
   for (const keybdAction of config.mainConfig.main.value.keybdActions) {
     const params: IActionFunctionParams = {};
     keybdAction.action.params.forEach((param) => {
@@ -125,10 +124,14 @@ export async function saveKeybdActions() {
     const action = keybdAction.action.action;
     unlistens.push(
       await bindKey(keybdAction.keyActive, () => {
-        console.log(keybdAction.keyActive);
         action(params);
       })
     );
   }
+}
+
+export async function saveKeybdActions() {
+  config.autoSaveSubVariantConfig();
+  await bindKeybdActions();
   updateHandle();
 }
